@@ -97,6 +97,7 @@
 #define IDB_PROGRESSBORDER              337
 #define IDB_TITLE                       338
 #define IDB_TITLE_HD                    339
+#define IDB_DIALOGTITLE                 340
 // Next default values for new objects
 //
 #ifdef APSTUDIO_INVOKED

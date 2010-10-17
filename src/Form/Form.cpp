@@ -45,6 +45,8 @@ Copyright_License {
 #include "Screen/SingleWindow.hpp"
 #include "Screen/Layout.hpp"
 #include "Screen/Fonts.hpp"
+#include "Screen/Bitmap.hpp"
+#include "resource.h"
 #include "Util/StringUtil.hpp"
 
 bool
@@ -391,18 +393,27 @@ WndForm::on_paint(Canvas &canvas)
   canvas.raised_edge(rcClient);
 
   // Set the colors
-  canvas.set_text_color(GetForeColor());
-  canvas.set_background_color(mColorTitle);
+  canvas.set_text_color(Color::WHITE);
   canvas.background_transparent();
 
   // Set the titlebar font and font-size
   canvas.select(*mhTitleFont);
 
   // JMW todo add here icons?
+  Bitmap bitmap_title;
+  bitmap_title.load(IDB_DIALOGTITLE);
+  BitmapCanvas canvas_title(canvas, bitmap_title);
+  int bitmap_title_width = canvas_title.get_width();
+  int bitmap_title_height = canvas_title.get_height();
+
+  canvas.stretch(mTitleRect.left, mTitleRect.top,
+                 mTitleRect.right - mTitleRect.left,
+                 mTitleRect.bottom - mTitleRect.top,
+                 canvas_title, 0, 0,
+                 bitmap_title_width, bitmap_title_height);
 
   // Draw titlebar text
-  canvas.text_opaque(mTitleRect.left + Layout::FastScale(2),
-                     mTitleRect.top, mTitleRect, mCaption);
+  canvas.text(mTitleRect.left + Layout::FastScale(2), mTitleRect.top, mCaption);
 }
 
 void
