@@ -96,7 +96,6 @@ WndForm::WndForm(SingleWindow &_main_window,
                  const WindowStyle style):
   main_window(_main_window),
   mModalResult(0),
-  mColorTitle(Color::YELLOW),
   mhTitleFont(&Fonts::MapBold),
   mOnTimerNotify(NULL), mOnKeyDownNotify(NULL)
 {

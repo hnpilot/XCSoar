@@ -113,8 +113,6 @@ private:
 protected:
   SingleWindow &main_window;
   int mModalResult;
-  /** Background color of the titlebar */
-  Color mColorTitle;
   /** Font of the titlebar */
   const Font *mhTitleFont;
   /** The ClientWindow */
