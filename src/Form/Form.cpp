@@ -45,7 +45,6 @@ Copyright_License {
 #include "Screen/SingleWindow.hpp"
 #include "Screen/Layout.hpp"
 #include "Screen/Fonts.hpp"
-#include "Screen/Bitmap.hpp"
 #include "resource.h"
 #include "Util/StringUtil.hpp"
 
@@ -119,6 +118,8 @@ WndForm::WndForm(SingleWindow &_main_window,
 #if !defined(ENABLE_SDL) && !defined(NDEBUG)
   ::SetWindowText(hWnd, mCaption);
 #endif
+
+  bitmap_title.load(IDB_DIALOGTITLE);
 }
 
 WndForm::~WndForm()
@@ -399,8 +400,6 @@ WndForm::on_paint(Canvas &canvas)
   canvas.select(*mhTitleFont);
 
   // JMW todo add here icons?
-  Bitmap bitmap_title;
-  bitmap_title.load(IDB_DIALOGTITLE);
   BitmapCanvas canvas_title(canvas, bitmap_title);
   int bitmap_title_width = canvas_title.get_width();
   int bitmap_title_height = canvas_title.get_height();

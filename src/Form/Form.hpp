@@ -42,6 +42,7 @@ Copyright_License {
 #include "Form/Container.hpp"
 #include "Dialogs.h"
 #include "Util/tstring.hpp"
+#include "Screen/Bitmap.hpp"
 
 #include <map>
 #include <list>
@@ -121,6 +122,7 @@ protected:
   RECT mClientRect;
   /** Coordinates of the titlebar */
   RECT mTitleRect;
+  Bitmap bitmap_title;
 
   TimerNotifyCallback_t mOnTimerNotify;
   KeyDownNotifyCallback_t mOnKeyDownNotify;
