@@ -104,7 +104,7 @@ WndForm::WndForm(SingleWindow &_main_window,
 
   // Create ClientWindow
 
-  SetBackColor(Color(0xDA, 0xDB, 0xAB));
+  SetBackColor(Color(0xD4, 0xD9, 0xF5));
 
   WindowStyle client_style;
   client_style.control_parent();
