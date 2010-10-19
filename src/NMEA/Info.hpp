@@ -388,6 +388,10 @@ struct NMEA_INFO {
 
   FLARM_STATE flarm;
 
+  /** Electronic Noise Level */
+  bool ENLAvailable;
+  int ENL;
+
   /**
    * Returns the barometric altitude, and falls back to the GPS
    * altitude.
