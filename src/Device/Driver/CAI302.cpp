@@ -194,6 +194,11 @@ cai_PCAID(NMEAInputLine &line, NMEA_INFO *GPS_INFO, bool enable_baro)
     GPS_INFO->BaroAltitudeAvailable = true;
   }
 
+  if (line.read_checked(value)) {
+    GPS_INFO->ENL = value;
+    GPS_INFO->ENLAvailable = true;
+  }
+
   return true;
 }
 
