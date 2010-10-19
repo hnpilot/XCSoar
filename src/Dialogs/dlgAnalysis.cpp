@@ -362,6 +362,13 @@ OnCalcClicked(WindowControl *Sender)
   Update();
 }
 
+static void
+OnTimerNotify(WindowControl * Sender)
+{
+  (void)Sender;
+  Update();
+}
+
 static CallBackTableEntry CallBackTable[] = {
   DeclareCallBackEntry(OnAnalysisPaint),
   DeclareCallBackEntry(OnNextClicked),
@@ -384,6 +391,7 @@ dlgAnalysisShowModal(int _page)
   if (!wf)
     return;
 
+  wf->SetTimerNotify(OnTimerNotify);
   wf->SetKeyDownNotify(FormKeyDown);
 
   wGrid = (WndOwnerDrawFrame*)wf->FindByName(_T("frmGrid"));
